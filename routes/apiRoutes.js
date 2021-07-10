@@ -24,10 +24,10 @@ router.get('/api/workouts/range', (req, res) => {
     .catch(err => {
         res.status(400).json(err);
     });
-})
+});
 
 // UPDATE workout
-router.put('/api/workouts/:id', ({ params }, res) => {
+router.put('/api/workouts/:id', ({ params, body }, res) => {
     dbmodels.Workout.findByIdAndUpdate(
         {
             _id: req.params.id
@@ -41,6 +41,40 @@ router.put('/api/workouts/:id', ({ params }, res) => {
             new: true
         }
     )
+    .then((dbworkoutTracking) => {
+        res.json(dbworkoutTracking);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    });
+});
+
+// returning totalDuration of all exercises
+router.get('api/workouts', (req, res) => {
+    db.Workout.aggregate([
+        {
+           $addFields: {
+            totalDuration: {$sum: $exercise.duration}
+            } 
+        }
+    ])
+    .then((dbworkoutTracking) => {
+        res.json(dbworkoutTracking);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    });
+});
+
+// returning totalWeight of all exercises
+router.get('api/workouts', (req, res) => {
+    db.Workout.aggregate([
+        {
+           $addFields: {
+            totalWeight: {$sum: $exercise.weight}
+            } 
+        }
+    ])
     .then((dbworkoutTracking) => {
         res.json(dbworkoutTracking);
     })
