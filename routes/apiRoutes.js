@@ -30,11 +30,11 @@ router.get('/workouts/range', (req, res) => {
 router.put('/workouts/:id', ({ params, body }, res) => {
     dbmodels.Workout.findByIdAndUpdate(
         {
-            _id: req.params.id
+            _id: params.id
         },
         {
             $addToSet: {
-                exercise: req.body
+                exercise: body
             }
         },
         {
