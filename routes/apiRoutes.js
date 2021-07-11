@@ -5,7 +5,7 @@ const dbmodels = require('../models');
 
 
 // CREATE a workout
-router.post('/api/workouts', ({ body }, res) => {
+router.post('/workouts', ({ body }, res) => {
     dbmodels.Workout.create(body)
     .then(dbworkoutTracking => {
         res.json(dbworkoutTracking);
@@ -16,7 +16,7 @@ router.post('/api/workouts', ({ body }, res) => {
 });
 
 // READ workout
-router.get('/api/workouts/range', (req, res) => {
+router.get('/workouts/range', (req, res) => {
     dbmodels.Workout.find({})
     .then(dbworkoutTracking => {
         res.json(dbworkoutTracking);
@@ -27,7 +27,7 @@ router.get('/api/workouts/range', (req, res) => {
 });
 
 // UPDATE workout
-router.put('/api/workouts/:id', ({ params, body }, res) => {
+router.put('/workouts/:id', ({ params, body }, res) => {
     dbmodels.Workout.findByIdAndUpdate(
         {
             _id: req.params.id
@@ -50,7 +50,7 @@ router.put('/api/workouts/:id', ({ params, body }, res) => {
 });
 
 // returning totalDuration of all exercises
-router.get('api/workouts', (req, res) => {
+router.get('/workouts', (req, res) => {
     db.Workout.aggregate([
         {
            $addFields: {
@@ -67,7 +67,7 @@ router.get('api/workouts', (req, res) => {
 });
 
 // returning totalWeight of all exercises
-router.get('api/workouts', (req, res) => {
+router.get('/workouts', (req, res) => {
     db.Workout.aggregate([
         {
            $addFields: {
