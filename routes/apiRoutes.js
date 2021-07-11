@@ -51,7 +51,7 @@ router.put('/workouts/:id', ({ params, body }, res) => {
 
 // returning totalDuration of all exercises
 router.get('/workouts', (req, res) => {
-    db.Workout.aggregate([
+    dbmodels.Workout.aggregate([
         {
            $addFields: {
             totalDuration: {$sum: $exercise.duration}
@@ -68,7 +68,7 @@ router.get('/workouts', (req, res) => {
 
 // returning totalWeight of all exercises
 router.get('/workouts', (req, res) => {
-    db.Workout.aggregate([
+    dbmodels.Workout.aggregate([
         {
            $addFields: {
             totalWeight: {$sum: $exercise.weight}
