@@ -2,7 +2,7 @@
 const router = require('express').Router();
 // requiring our models folder to use exercise and workouts model
 const dbmodels = require('../models');
-const { db } = require('../models/exercise');
+
 
 // CREATE a workout
 router.post('/api/workouts', ({ body }, res) => {
@@ -83,4 +83,6 @@ router.get('api/workouts', (req, res) => {
     });
 });
 
+
+module.exports = router; 
 
