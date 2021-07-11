@@ -54,7 +54,7 @@ router.get('/workouts', (req, res) => {
     dbmodels.Workout.aggregate([
         {
            $addFields: {
-            totalDuration: {$sum: $exercise.duration}
+            totalDuration: {$sum: '$exercise.duration'}
             } 
         }
     ])
