@@ -26,12 +26,12 @@ function populateChart(data) {
     const date = new Date(day);
 
     // Use JavaScript's `Intl` object to help format dates
-  //   return new Intl.DateTimeFormat('en-US', {
-  //     weekday: 'short',
-  //     month: 'short',
-  //     day: 'numeric',
-  //   }).format(date);
-  // });
+    return new Intl.DateTimeFormat('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+    }).format(date);
+  });
 
   let lineChart = new Chart(line, {
     type: 'line',
@@ -105,7 +105,7 @@ function populateChart(data) {
       },
     },
   });
-}
+
 
 // get all workout data from back-end
 API.getWorkoutsInRange().then(populateChart);
