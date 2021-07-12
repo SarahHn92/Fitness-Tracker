@@ -25,10 +25,15 @@
   ## Screenshots
 
   Homepage:
-  ![Homepage-screenshot](.\Assets\Screenshot1.png)
+  ![Homepage-screenshot](./Assets/Screenshot1.png)
 
   Stats page:
-  ![Stats-page-screenshot](.\Assets\Screenshot2.png)
+  ![Stats-page-screenshot](./Assets/Screenshot2.png)
+
+  ## Links 
+  Deployed app: [Heroku-deployed](https://shielded-spire-91656.herokuapp.com/?id=60ebc1c590aece001551e697)
+
+  Github repository: [Github-repo](https://github.com/SarahHn92/Fitness-Tracker)
   
   ## Installation
  `npm i` will install the required dependencies.
